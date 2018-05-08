@@ -19,13 +19,13 @@ import com.fasterxml.jackson.annotation.JsonView;
 import com.yarr.employee.presentation.EmployeeInfo;
 import com.yarr.employee.presentation.EmployeeView;
 import com.yarr.employee.repository.entity.Employee;
-import com.yarr.employee.service.IEmployeeService;
+import com.yarr.employee.service.EmployeeService;
 
 @RestController
 public class EmployeeController {
 
 	@Autowired
-	private IEmployeeService employeeService;
+	private EmployeeService employeeService;
 
 	/**
 	 * Add or update a new employee.
@@ -76,7 +76,7 @@ public class EmployeeController {
 	@GetMapping("/v1/employees")
 	@JsonView(EmployeeView.List.class)
 	@ResponseBody
-	public ResponseEntity<List<Employee>> findAllEmployeeByCriteria(@RequestParam(required = false) String name, @RequestParam(required = false) String id) {
+	public ResponseEntity<List<Employee>> findAllEmployeeByCriteria(@RequestParam(required = false) String name, @RequestParam(required = false) Long id) {
 		List<Employee> employeeList = employeeService.findAllEmployeeByCriteria(name, id);
 		return ResponseEntity.status(HttpStatus.OK).body(employeeList);
 	}

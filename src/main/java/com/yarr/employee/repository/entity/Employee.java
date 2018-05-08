@@ -14,7 +14,7 @@ public class Employee implements EmployeeInfo {
 
 	private String name;
 	@Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	private String gender;
 	private String phone;

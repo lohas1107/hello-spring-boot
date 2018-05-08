@@ -22,7 +22,7 @@ public class EmployeeSpecification {
 	    };
 	}
 
-	public static Specification<Employee> hasId(String id) {
+	public static Specification<Employee> hasId(Long id) {
 	    return new Specification<Employee>() {
 			private static final long serialVersionUID = -7663692617611231739L;
 
