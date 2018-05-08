@@ -76,7 +76,7 @@ public class EmployeeController {
 	@GetMapping("/v1/employees")
 	@JsonView(EmployeeView.List.class)
 	@ResponseBody
-	public ResponseEntity<List<Employee>> findAllEmployeeByCriteria(@RequestParam(required = false) String name, @RequestParam(required = false) String id) {
+	public ResponseEntity<List<Employee>> findAllEmployeeByCriteria(@RequestParam(required = false) String name, @RequestParam(required = false) Long id) {
 		List<Employee> employeeList = employeeService.findAllEmployeeByCriteria(name, id);
 		return ResponseEntity.status(HttpStatus.OK).body(employeeList);
 	}
