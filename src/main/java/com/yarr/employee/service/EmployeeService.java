@@ -29,13 +29,12 @@ public class EmployeeService implements IEmployeeService {
 
 	@Override
 	public EmployeeInfo updateEmployee(Long id, Employee employee) throws Exception {
-		if (employeeRepository.existsById(id)) {
-			employee.setId(id);
-			employee.setAmendDate(new Date());
-			employeeRepository.save(employee);
-		} else {
-			throw new Exception("Employee not found");
-		}
+		Employee oldEmployee = employeeRepository.findById(id).orElseThrow(() -> new Exception("Employee not found"));
+		employee.setId(id);
+		employee.setCreateDate(oldEmployee.getCreateDate());
+		employee.setAmendDate(new Date());
+		employeeRepository.save(employee);
+
 		return employee;
 	}
 
