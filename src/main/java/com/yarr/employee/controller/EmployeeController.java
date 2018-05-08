@@ -19,13 +19,13 @@ import com.fasterxml.jackson.annotation.JsonView;
 import com.yarr.employee.presentation.EmployeeInfo;
 import com.yarr.employee.presentation.EmployeeView;
 import com.yarr.employee.repository.entity.Employee;
-import com.yarr.employee.service.IEmployeeService;
+import com.yarr.employee.service.EmployeeService;
 
 @RestController
 public class EmployeeController {
 
 	@Autowired
-	private IEmployeeService employeeService;
+	private EmployeeService employeeService;
 
 	/**
 	 * Add or update a new employee.
