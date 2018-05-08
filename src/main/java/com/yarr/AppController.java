@@ -1,4 +1,4 @@
-package com.yarr.controller;
+package com.yarr;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
